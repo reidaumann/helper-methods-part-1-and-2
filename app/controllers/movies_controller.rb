@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   def new
     @the_movie = Movie.new
 
-    render template: "movies/new"
+    render "movies/new"
   end
 
   def index
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
 
     @the_movie = matching_movies.first
 
-    render({ :template => "movies/show" })
+    render "movies/show" 
   end
 
   def create
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
       @the_movie.save
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
-      render template: "movies/new"
+      render "movies/new"
     end
   end
 
@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
 
     @the_movie = matching_movies.first
 
-    render({ :template => "movies/edit" })
+    render "movies/edit" 
   end
 
   def update
